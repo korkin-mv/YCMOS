@@ -48,4 +48,10 @@ constexpr T bitmask(H... bits)
     return (... | (1 << bits));
 }
 
+template<uint8_t shift, class T>
+constexpr uint8_t byte(T value)
+{
+    return (value >> (8*shift)) & 0xFF;
+}
+
 }

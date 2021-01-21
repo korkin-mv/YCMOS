@@ -39,7 +39,7 @@ PtResult VT::gets(Pt *pt, StringType &s)
                 _state = END;
                 break;
             case '\b':
-                if (s.remove(_cursor, 1))
+                if (_cursor != s.begin() && s.remove(_cursor-1, 1))
                 {
                     --_cursor;
                     PT_SPAWN(pt, &_inputPt, puts(&_inputPt, "\b \b"));
